@@ -1,0 +1,82 @@
+
+{% extends 'layout.html' %} {% block body %}
+
+<style>
+  .banner{
+    height: 100vh;
+  }
+  h1{
+    font-family: Arial, Helvetica, sans-serif;
+    size: 16px;
+    font-weight:bolder;
+  }
+  b{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+  .details{
+    margin-top: 20px;
+  }
+  .details p {
+    margin-bottom: 10px;
+    }
+  .details b {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .list{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px; 
+  }
+  .image-container {
+    display: inline-grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 3px; /* Gap between images */
+  }
+  .image-container img {
+    width: 70%;
+    height: 70%;
+    border-radius: 5px;
+  }
+</style>
+</style>
+<div class="bc-2" style="margin: 9rem; text-align: justify;">
+  <div class="details-box">
+      <div >
+          <div style="justify-content: center;">
+            <h1>{{ pest.name }}</h1> <br/>
+            <div class="details">
+                <b>Description:</b>
+                <p>
+                  <ul class="list">
+                    {% for point in pest.description.split('\n') %}
+                      <li>{{ point }}</li>
+                    {% endfor %}
+                  </ul>
+                </p>
+                <b>Prevention:</b>
+                <p>
+                  <ul class="list">
+                    {% for point in pest.prevention.split('\n') %}
+                      <li>{{ point }}</li>
+                    {% endfor %}
+                  </ul>
+                </p>
+                <b>Pesticides and Usages:</b>
+                <p>
+                  <ul class="list">
+                    {% for point in pest.pesticides.split('\n') %}
+                      <li>{{ point }}</li>
+                    {% endfor %}
+                  </ul>
+                </p>
+                <div class="image-container">
+                  {% for image_path in pest.pest_image %}
+                      <img src="{{ url_for('static', filename=image_path) }}" alt="Pesticide Image">
+                  {% endfor %}
+                </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

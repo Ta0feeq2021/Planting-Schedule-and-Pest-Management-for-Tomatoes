@@ -1,0 +1,547 @@
+{% extends 'officerlayout.html' %} {% block body %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<style>
+  .mt-0 {
+  margin-top: 50 !important;
+}
+  .btn{
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+  }
+  .contents{
+    margin-top:55px;
+    margin-bottom:90px;
+  }
+  .banner{
+    		height: 380vh;
+  }
+</style>
+
+
+<div class="contents">
+  
+<div class="mt-3 ">
+    <h1 class="text-center">Officer Dashboard - Pest Details list</h1>
+    <input type="text" class="form-control mt-3 mx-auto" id="myinput" placeholder="Search for pest" style="width: 30%;">
+    <div>
+      <h1 class="text-danger mt-5 text-center" id="para" style="display: none;size: 16px;font-weight:bolder;">Pest Not Found</h1>
+    </div>
+  </div>
+  
+  <div class="pest-list ">
+  <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/1.jpg" class="card-img-top" alt="1">
+          <button id="1" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/1'">
+            Dolycoris baccarum
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/2.jpg" class="card-img-top" alt="2">
+          <button id="2"  class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/2'">
+            Lycorma delicatula
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/3.jpg" class="card-img-top" alt="3">
+          <button id="3" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/3'">
+            Eurydema dominulus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/4.jpg" class="card-img-top" alt="4">
+          <button id="4" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/4'">
+            Pieris rapae
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/5.jpg" class="card-img-top" alt="5">
+          <button id="5" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/5'">
+            Halyomorpha halys
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/6.jpg" class="card-img-top" alt="6">
+          <button id="6" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/6'">
+            Spilosoma obliqua
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/7.jpg" class="card-img-top" alt="7">
+          <button id="7" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/7'">
+            Graphosoma rubrolineata
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/8.jpg" class="card-img-top" alt="8">
+          <button id="8" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/8'">
+            Luperomorpha saturalis
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/9.jpg" class="card-img-top" alt="9">
+          <button id="9" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/9'">
+            Leptocorisa acuta
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/10.jpg" class="card-img-top" alt="10">
+          <button id="10" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/10'">
+            Sesamia inferens
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/11.jpg" class="card-img-top" alt="11">
+          <button id="11" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/11'">
+            Cicadella viridis
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/12.jpg" class="card-img-top" alt="12">
+          <button id="12"  class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/12'">
+            Callitettix versicolor
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/13.jpg" class="card-img-top" alt="13">
+          <button id="13" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/13'">
+            Scotinophara lurida
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/14.jpg" class="card-img-top" alt="14">
+          <button id="14" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/14'">
+            Cletus punctiger
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/15.jpg" class="card-img-top" alt="15">
+          <button id="15" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/15'">
+            Nezara viridula
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/16.jpg" class="card-img-top" alt="16">
+          <button id="16" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/16'">
+            Dicladispa armigera
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/17.jpg" class="card-img-top" alt="17">
+          <button id="17" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/17'">
+            Riptortus pedestris
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/18.jpg" class="card-img-top" alt="18">
+          <button id="18" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/18'">
+            Maruca testulalis
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/19.jpg" class="card-img-top" alt="19">
+          <button id="19" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/19'">
+            Chauliops fallax
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/20.jpg" class="card-img-top" alt="20">
+          <button id="20" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/20'">
+            Chilo supperssalis
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/21.jpg" class="card-img-top" alt="21">
+          <button id="21" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/21'">
+            Stollia ventralis
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/22.jpg" class="card-img-top" alt="22">
+          <button id="22"  class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/22'">
+            Nilaparvata lugens
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/23.jpg" class="card-img-top" alt="23">
+          <button id="23" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/23'">
+            Diostrombus politus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/24.jpg" class="card-img-top" alt="24">
+          <button id="24" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/24'">
+            Phyllotreta striolata
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/25.jpg" class="card-img-top" alt="25">
+          <button id="25" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/25'">
+            Aulacophora indica
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/26.jpg" class="card-img-top" alt="26">
+          <button id="26" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/26'">
+            Laodelphax striatellus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/27.jpg" class="card-img-top" alt="27">
+          <button id="27" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/27'">
+            Ceroplastes ceriferus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/28.jpg" class="card-img-top" alt="28">
+          <button id="28" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/28'">
+            Corythucha marmorata
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/29.jpg" class="card-img-top" alt="29">
+          <button id="29" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/29'">
+            Dryocosmus Kuriphilus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/30.jpg" class="card-img-top" alt="30">
+          <button id="30" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/30'">
+            Porthesia taiwana
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/31.jpg" class="card-img-top" alt="31">
+          <button id="31" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/31'">
+            Chromatomyia horticola
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/32.jpg" class="card-img-top" alt="32">
+          <button id="32"  class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/32'">
+            Iscadia inexacta
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/33.jpg" class="card-img-top" alt="33">
+          <button id="33" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/33'">
+            Plutella xylostella
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/34.jpg" class="card-img-top" alt="34">
+          <button id="34" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/34'">
+            Empoasca flavescens
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/35.jpg" class="card-img-top" alt="35">
+          <button id="35" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/35'">
+            Dolerus tritici
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="row d-flex justify-content-center mx-auto">
+    <!-- Left Column (Card 1) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/36.jpg" class="card-img-top" alt="36">
+          <button id="36" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/36'">
+            Spodoptera litura
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Card 2) -->
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/37.jpg" class="card-img-top" alt="37">
+          <button id="37" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/37'">
+            Corythucha ciliata
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/38.jpg" class="card-img-top" alt="38">
+          <button id="38" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/38'">
+            Bemisia tabaci
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/39.jpg" class="card-img-top" alt="39">
+          <button id="39" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/39'">
+            Ceutorhynchus asper
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class=" text-center">
+          <img src="static/pest/40.jpg" class="card-img-top" alt="40">
+          <button id="40" class=" btn btn-success btn-block " onclick="window.location.href='/detailed_view/40'">
+            Strongyllodes variegatus
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const pestButtons = document.querySelectorAll('.btn-success');
+    const searchInput = document.getElementById('myinput');
+    const notFoundMessage = document.getElementById('para');
+    const pestCards = document.querySelectorAll('.col-md-2');
+
+    pestButtons.forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevents click event propagation
+      });
+    });
+
+    searchInput.addEventListener('input', function () {
+      const searchTerm = this.value.toLowerCase();
+      let found = false;
+
+      pestCards.forEach(card => {
+        const pestName = card.querySelector('button').textContent.toLowerCase();
+        const parentCard = card.closest('.col-md-2');
+
+        if (pestName.includes(searchTerm)) {
+          parentCard.style.display = 'block';
+          found = true;
+        } else {
+          parentCard.style.display = 'none';
+        }
+      });
+
+      if (!found) {
+        notFoundMessage.style.display = 'block';
+      } else {
+        notFoundMessage.style.display = 'none';
+      }
+    });
+  });
+
+  
+</script>
+
+
+{% endblock %}

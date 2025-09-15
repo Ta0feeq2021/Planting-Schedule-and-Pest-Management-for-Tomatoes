@@ -1,0 +1,180 @@
+
+{% extends 'officerlayout.html' %} {% block body %}
+
+<style>
+  h1{
+    font-family: Arial, Helvetica, sans-serif;
+    size: 16px;
+    font-weight:bolder;
+  }
+  b{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+  .details{
+    margin-top: 20px;
+  }
+  .details p {
+    margin-bottom: 10px;
+    }
+  .details b {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .list{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px; /* Add some space between list items */
+  }
+  .image-container {
+    display: inline-grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 3px; /* Gap between images */
+}
+  .image-container img {
+    width: 80%;
+    height: 70%;
+    
+    border-radius: 5px;
+  }
+  textarea{
+    font-weight: bold !important;
+    height: 200px !important  ;
+    border-radius: 15px !important;
+    border-color: grey   !important;
+  }
+  .i2{
+    font-weight: bold !important;
+    border-radius: 15px !important;
+    border-color: grey   !important;
+  }
+.image-wrapper {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+.image-wrapper img {
+    display: block;
+    max-width: 100%;
+}
+
+.image-wrapper .delete-btn {
+    display: block;
+    width: 80%;
+    margin-top: 5px;
+}
+  
+</style>
+
+
+<div class="container py-2 mx-auto my-50 h-10" style="margin: 9rem; text-align: justify;">
+  <div class="row">
+    <div class="col-sm py-2 py-md-3">
+      <div class="card card-body" style="justify-content: center; background-color:blanchedalmond">
+        <h1>{{ pest.name }}</h1><br/>
+        <div class="details">
+          <b>Description:</b>
+          <p>
+            <ul class="list">
+              {% for point in pest.description.split('\n') %}
+                <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </p>
+          <b>Prevention:</b>
+          <p>
+            <ul class="list">
+              {% for point in pest.prevention.split('\n') %}
+                <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </p>
+          <b>Pesticides and Usages:</b>
+          <p>
+            <ul class="list">
+              {% for point in pest.pesticides.split('\n') %}
+                <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </p>
+          <div class="image-container">
+            {% for image_path in pest.pest_image %}
+              {% set clean_image_path = image_path.replace("[", "").replace("]", "").replace("'", "") %}
+              <img src="{{ url_for('static', filename=clean_image_path) }}" alt="Pesticide Image">
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-2">
+        <button class="btn btn-success btn-lg" onclick="showEditForm()">Edit</button>
+      </div>
+      <div id="editForm" style="display: none;">
+        
+        <form id="editform" method="post" enctype="multipart/form-data" action="{{ url_for('edit_pest', pest_id=pest_id) }}" class="mt-4" onsubmit="return showSuccessAlert();">
+          <div class="form-group">
+            <b for="description">Description:</b>
+            <textarea id="description" name="description" rows="4" class="form-control" style="resize: none">{{ pest.description }}</textarea>
+          </div>
+          <div class="form-group">
+            <b for="prevention">Prevention:</b>
+            <textarea id="prevention" name="prevention" rows="4" class="form-control" style="resize: none">{{ pest.prevention }}</textarea>
+          </div>
+          <div class="form-group">
+            <b for="pesticides">Pesticides and Usages:</b>
+            <textarea id="pesticides" name="pesticides" rows="4" class="form-control" style="resize: none">{{ pest.pesticides }}</textarea>
+          </div>
+
+          <div class="form-group">
+            <b for="pest_image">Pesticide images:</b><br><br>
+            <div class="image-container">
+              {% for image_path in pest.pest_image %}
+                {% set clean_image_path = image_path.replace("[", "").replace("]", "").replace("'", "") %}
+                <div class="image-wrapper">
+                  <img src="{{ url_for('static', filename=clean_image_path) }}" alt="Pesticide Image">
+                  <button class="btn btn-danger btn-sm delete-btn btn" onclick="deleteImage(event, this, '{{ clean_image_path }}')">Delete</button>
+                </div>
+              {% endfor %}
+            </div>
+            <input type="file" id="image" name="image" accept="image/*" class="form-control i2">
+          </div>
+          
+          <div class="text-center mt-2">
+            <button type="submit" class="btn btn-success btn-lg">Update</button>
+            <button type="button" class="btn btn-danger btn-lg" onclick="hideEditForm()">Discard</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showEditForm() {
+    document.getElementById("editForm").style.display = "block";
+  }
+  function hideEditForm() {
+    document.getElementById("editForm").style.display = "none";
+  }
+  function showSuccessAlert() {
+    var alertMessage = "Updated successfully!";
+    alert(alertMessage);
+    return true;
+  }
+  function deleteImage(event, button, imagePath) {
+    // Prevent the form from being submitted
+    event.preventDefault();
+
+    // Hide the image element
+    button.parentElement.style.display = 'none';
+
+    // Save the image path in a hidden input field
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'deleted_images';
+    input.value = imagePath;
+    document.getElementById('editform').appendChild(input);
+}
+
+
+</script>
+{% endblock %}

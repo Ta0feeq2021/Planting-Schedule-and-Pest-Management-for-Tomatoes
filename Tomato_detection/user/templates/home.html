@@ -1,0 +1,34 @@
+{% extends 'layout.html' %} {% block body %}
+
+  <form class="form-signin" method=post enctype=multipart/form-data>
+
+    <div class="bc-1">
+      <div class="card">
+        <h2>IDENTIFY THE PEST THAT WAS CAUGHT BY YOUR PLANT</h2>
+        <p>Upload an image of pest.</p>
+        <div class="card-img-body">
+        <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight: bold;">
+        <br>
+        <br>
+        <img id="output-image" class="card-img d-block" /><br>
+        </div>
+        <button type="submit"><span></span>Predict</button>
+        
+      </div>
+    </div>
+
+  </form>
+
+
+<script type="text/javascript">
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('output-image')
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script>
+
+{% endblock %}

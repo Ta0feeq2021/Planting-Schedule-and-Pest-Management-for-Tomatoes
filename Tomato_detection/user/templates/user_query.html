@@ -1,0 +1,53 @@
+{% extends 'layout.html' %} {% block body %}
+<script src="https://kit.fontawesome.com/361e6eee30.js" crossorigin="anonymous"></script>
+
+  <form method="POST" action="{{ url_for('submit_query') }}" onsubmit="return showSuccessAlert();">
+
+
+
+            <div class="bc-1">
+              <div class="card-form">
+                <h1>You have any queries?</h1>
+                <form method="POST" action="{{ url_for('submit_query') }}" onsubmit="return showSuccessAlert();">
+                  <div class="input-group">
+                    <div class="card-input-field" id="nameField">
+                      <input type="text"  id="Name" name="Name" placeholder="Enter your fullname">
+                    </div>
+                    <div class="card-input-field" id="nameField">
+                      <input type="email" id="Email" name="Email" placeholder="Enter your valid Email ID">
+                    </div>
+                    <div class="card-textarea">
+                      <textarea id="Message" name="Message" class="form-control" rows="6" maxlength="3000" placeholder="Maximum of 3000 letters" required></textarea>
+                    </div>
+                    <div class="btn-field">
+                      <button type="submit">SEND</button>
+                    </div>
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+
+
+
+  </form>
+
+</div>
+
+<script>
+  function showSuccessAlert() {
+    // Customize the alert message
+    var alertMessage = "Query submitted successfully!";
+
+    // Display a JavaScript alert with the customized message
+    alert(alertMessage);
+
+    // Return true to allow the form submission or false to prevent it
+    return true;
+  }
+</script>
+
+
+
+
+{% endblock %}

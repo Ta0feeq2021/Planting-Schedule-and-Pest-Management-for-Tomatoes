@@ -1,0 +1,48 @@
+{% extends 'layout.html' %} {% block body %}
+<script src="https://kit.fontawesome.com/361e6eee30.js" crossorigin="anonymous"></script>
+
+  <form method="POST" action="{{ url_for('officer_login') }}">
+
+    
+                <div class="bc-1">
+                  <div class="form-box">
+                    <h1>OFFICER LOGIN</h1>
+                    <form action="POST" enctype="multipart/form-data">
+                      <div class="input-group">
+                        <div class="input-field" id="nameField">
+                          <i class="fa-solid fa-user"></i>
+                          <input type="text" id="username" name="username" placeholder="Username">
+                        </div>
+                        <div class="input-field">
+                          <i class="fa-solid fa-key"></i>
+                          <input type="password" id="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="btn-field">
+                          <button type="submit" id="loginBtn">LOGIN</button>
+                        </div>
+                      </div>
+                    </form>
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flashes ">
+                            {% for message in messages %}
+                               <ul >
+                                 <li class="text-center" style="color: red ;margin-top: 0px;"><b>{{ message[1] }}</b></li>
+                               </ul>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+
+                    
+                  </div>
+                </div>
+    
+    
+  </form>
+
+
+
+</div>
+{% endblock %}

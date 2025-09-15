@@ -1,0 +1,22 @@
+# ViT Training Requirements
+torch>=1.9.0
+torchvision>=0.10.0
+transformers>=4.20.0
+timm>=0.6.0
+Pillow>=8.3.0
+numpy>=1.21.0
+scikit-learn>=1.0.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+tqdm>=4.62.0
+PyYAML>=6.0 # Added PyYAML explicitly
+
+# Flask Integration (if you plan to run Flask from this env)
+flask>=2.0.0
+flask-cors>=3.0.0
+pymongo>=4.0.0
+
+# Data Processing (if needed for other scripts)
+pandas>=1.3.0
+opencv-python>=4.5.0
+albumentations>=1.1.0
