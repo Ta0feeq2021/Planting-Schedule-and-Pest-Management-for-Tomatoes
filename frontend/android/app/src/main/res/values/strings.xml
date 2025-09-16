@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TomatoPest AI</string>
+    <string name="title_activity_main">TomatoPest AI</string>
+    <string name="package_name">com.tomatopest.ai</string>
+    <string name="custom_url_scheme">com.tomatopest.ai</string>
+</resources>
