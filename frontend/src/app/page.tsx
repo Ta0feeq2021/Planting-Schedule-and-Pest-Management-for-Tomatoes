@@ -1,12 +1,4 @@
-// import Image from 'next/image'
 
-// export default function Home() {
-//   return (
-//     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-//       <h1>YO FAm</h1>
-//     </main>
-//   )
-// }
 "use client"
 
 import type React from "react"
@@ -59,6 +51,7 @@ interface WeatherData {
     precipitation: number
   }>
 }
+
 
 interface PlantingRecommendation {
   shouldPlant: boolean
@@ -343,7 +336,7 @@ export default function TomatoFarmingApp() {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
               <div className="bg-gradient-to-br from-primary-500 to-primary-600 p-3 rounded-2xl shadow-lg">
-                <Leaf className="w-8 h-8 text-white" />
+                <Leaf className="w-8 h-8 text-black" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
@@ -382,7 +375,7 @@ export default function TomatoFarmingApp() {
                 <span>Advanced Agricultural Technology</span>
               </div>
               <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Welcome to{" "}
+                Welcome to SmartTomato Farming{" "}
                 <span className="bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
                   Smart Tomato Farming
                 </span>
@@ -885,3 +878,14 @@ export default function TomatoFarmingApp() {
     </div>
   )
 }
+
+
+
+
+// export default function Home() {
+//   return (
+//     <div className="bg-red-500 text-white p-8 text-4xl font-bold">
+//       RED BACKGROUND = TAILWIND WORKS!
+//     </div>
+//   )
+// }

@@ -18,7 +18,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light">
-      {" "}
       {/* Added 'light' class to force light mode */}
       <body className={inter.className}>
         {children}
