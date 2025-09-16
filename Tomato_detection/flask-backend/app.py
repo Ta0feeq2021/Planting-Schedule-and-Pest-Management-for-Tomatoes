@@ -32,9 +32,13 @@ import io
 import os
 from datetime import datetime
 from werkzeug.utils import secure_filename
+import requests
+from pathlib import Path
 
 app = Flask(__name__)
 CORS(app, origins=['http://localhost:3000'])
+
+
 
 # Load models globally at startup (not per request)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
