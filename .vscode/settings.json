@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Tomato_detection/Scripts/integrate_vit_with_"
+    ]
+}
