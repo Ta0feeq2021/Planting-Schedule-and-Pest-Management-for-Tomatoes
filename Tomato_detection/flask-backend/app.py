@@ -34,10 +34,19 @@ from datetime import datetime
 from werkzeug.utils import secure_filename
 import requests
 from pathlib import Path
+from io import BytesIO
+from torchvision import tramsforms
+from huggingface_hub import hf_hub_download
+
 
 app = Flask(__name__)
 CORS(app, origins=['http://localhost:3000'])
 
+# Download model from Hugging Face (only first time)
+model_path = hf_hub_download(
+    repo_id="Taofeeq2021/Pest-detection-model",
+    filename="models/vit_tomato_model.pth"
+)
 
 
 # Load models globally at startup (not per request)
@@ -396,6 +405,8 @@ def health_check():
 if __name__ == '__main__':
     print("🚀 Starting Tomato Pest Detection Flask Server...")
     print("📱 Model classes:", vit_predictor.class_names if vit_predictor else "Model not loaded")
-    print("🌐 Server will run on http://127.0.0.1:5000")
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    # print("🌐 Server will run on http://127.0.0.1:5000")
+    # app.run(debug=True, host='127.0.0.1', port=5000)
+    print("🌐 Server will run on http://0.0.0.0:5000")
+    app.run(debug=False, host='0.0.0.0', port=5000)
 
